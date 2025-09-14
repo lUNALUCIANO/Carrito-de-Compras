@@ -24,4 +24,4 @@ function ItemListContainer() {
         <ItemListWithLoading items={items}/>
     )
 }
-export default ItemListContainer;
+export default ItemListContainer
