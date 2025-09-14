@@ -2,31 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 
 }
 
 
-.div {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  padding: 10px 20px;
-  background-color:#2986cc; 
-  color: #fff;
-}
-
-.titulo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin: 20px;
-}
-
-.descripcion {
-  list-style: none;
-  display: flex;
-  font-size: 30px;
-  gap: 80px;
-  margin: 0;
-  padding: 0;
-}
 
