@@ -50,7 +50,7 @@ function NavBar({ categories }) {
             </Container>
 
         </Navbar>
-    );
+    )
 }
 
 export default NavBar
