@@ -15,4 +15,4 @@ function NavBarContainer() {
     
 }
 
-export default NavBarContainer;
+export default NavBarContainer
