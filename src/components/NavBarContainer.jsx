@@ -1,6 +1,5 @@
-
-import { useEffect, useState } from 'react'
 import NavBar from './NavBar'
+import { useEffect, useState } from 'react'
 
 function NavBarContainer() {
     const [categories, setCategories] = useState([])
