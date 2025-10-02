@@ -8,13 +8,17 @@ function Item({item}) {
     const navigate = useNavigate()
     return (
 
-        <Col lg={3}className="mb-4">
-            <Card >
-                <Card.Img variant="top" src={item.thumbnail}/>
+        <Col lg={3}className="mb-5">
+            <Card className= "h-100 d-flex flex-column align-items-center text-center">
+                <Card.Img variant="top" 
+                src={item.image} className="img-fluid" />
                 <Card.Body>
-                    <Card.Title>{item.title}</Card.Title>
+                    <Card.Title>{item.name}</Card.Title >
                     <Card.Text>
-                        {item.category}
+                        {item.Description}
+                    </Card.Text>
+                    <Card.Text>
+                        ${item.price}
                     </Card.Text>
                     <Button onClick={() => navigate(`/detalle/${item.id}`)}>Ver mas</Button>
                 </Card.Body>

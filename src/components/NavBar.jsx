@@ -23,9 +23,9 @@ function NavBar({ categories }) {
                             {categories.map(category => (
                                 <NavDropdown.Item
                                     as={NavLink}
-                                    to={`/category/${category}`}
-                                    key={category}>
-                                    {category}
+                                    to={`/category/${category.categoryName}`}
+                                    key={category.id}>
+                                    {category.categoryName}
                                 </NavDropdown.Item>
                             ))}
                         </NavDropdown>
