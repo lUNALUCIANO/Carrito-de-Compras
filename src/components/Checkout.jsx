@@ -4,11 +4,13 @@ import { useContext } from 'react'
 import { CartContext } from '../context/CartContext'
 import { serverTimestamp } from 'firebase/firestore'
 import { createOrder } from '../firebase/db'
+import { useNavigate } from 'react-router-dom'
 
 function Checkout() {
-    const { getTotal, cart } = useContext(CartContext)
+    const navigate = useNavigate()
+    const { getTotal, cart, clearCart } = useContext(CartContext)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
 
         const form = e.target
@@ -24,14 +26,17 @@ function Checkout() {
 
         }
 
-        createOrder(order)
+       const ok =  await createOrder(order)
+
+       if (ok){
+        navigate('/')
+        clearCart()
+       }
 
     }
 
-    if( !cart.length){
-        return <div>No tienes Productos Cargados !!!</div>
-    }
 
+ 
 
 
     return (
@@ -39,7 +44,7 @@ function Checkout() {
             <Form className='w-50' onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="email">
                     <Form.Label>Correo Electronico</Form.Label>
-                    <Form.Control type="email" placeholder="Ingrese su mail" required defaultValue={'luna@luciano'} name='email' />
+                    <Form.Control type="email" placeholder="Ingrese su mail" required  name='email' />
                     <Form.Text className="text-muted">
                         Nunca compartiremos tu correo electrónico con nadie más.
                     </Form.Text>
@@ -47,12 +52,12 @@ function Checkout() {
 
                 <Form.Group className="mb-3" controlId="nombre">
                     <Form.Label>Nombre</Form.Label>
-                    <Form.Control type="text" placeholder="Nombre" required defaultValue={'luciano'} name='nombre' />
+                    <Form.Control type="text" placeholder="Nombre" required  name='nombre' />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="telefono">
                     <Form.Label>Telefono</Form.Label>
-                    <Form.Control type="text" placeholder="Telefono " required defaultValue={'1134567677'} name={'telefono'} />
+                    <Form.Control type="text" placeholder="Telefono " required  name={'telefono'} />
                 </Form.Group>
 
 
@@ -63,5 +68,7 @@ function Checkout() {
         </div>
 
     )
+
+    
 }
 export default Checkout

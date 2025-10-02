@@ -10,9 +10,9 @@ function CartWidget() {
   const cantidades = obtenerCant()
   const navigate = useNavigate()
   return (
-    <Button variant="primary" onClick={() => navigate("/cart")}>🛒 <Badge bg="secondary">{cantidades}</Badge>
+    <Button variant="primary" onClick={() => navigate("/cart")}>Tu Carrito 🛒 <Badge bg="secondary">{cantidades}</Badge>
     </Button>
-  );
+  )
 }
 
 

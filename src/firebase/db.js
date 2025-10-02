@@ -1,5 +1,6 @@
-import { getFirestore, collection, getDocs, query, where, doc, getDoc, addDoc} from "firebase/firestore"
+import { getFirestore, collection, getDocs, query, where, doc, getDoc, addDoc } from "firebase/firestore"
 import { app } from "./config"
+import toast from "react-hot-toast"
 
 
 const db = getFirestore(app)
@@ -38,21 +39,37 @@ export const getItemsByCategory = async (category) => {
 }
 
 export const getItem = async (id) => {
-    
+
     const docRef = doc(db, "items", id)
     const docSnap = await getDoc(docRef)
 
     if (docSnap.exists()) {
-      return {...docSnap.data(), id: docSnap.id}
+        return { ...docSnap.data(), id: docSnap.id }
     } else {
         // docSnap.data() will be undefined in this case
         console.log("No such document!")
     }
 }
 
-export const createOrder = async (order) =>{
-    
-const docRef = await addDoc(collection(db, "orders" ), order)
-console.log("Document written with ID: ", docRef.id)
+export const createOrder = async (order) => {
+    try {
+        const docRef = await addDoc(collection(db, "orders"), order)
+        const detalle = order.items
+            .map(item => `${item.name} x${item.count} ($${item.price})`)
+            .join(", ")
+        toast.success(
+            `Gracias por tu compra!\nTu Numero de ID es: ${docRef.id}\nDetalle:${detalle}\nTotal: $${order.total}`, {
+            duration: 8000,
+            icon: "🎉"
+        }
+
+        )
+        return true
+    } catch (error) {
+        toast.error(`Ocurrio un error :${error.code}`)
+        return false
+    }
 }
- 
+
+
+
