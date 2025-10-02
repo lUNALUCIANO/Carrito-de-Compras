@@ -6,7 +6,7 @@ import { CartContext } from '../context/CartContext'
 import { useNavigate } from 'react-router'
 
 function CartWidget() {
-  const { obtenerCant} = useContext( CartContext)
+  const { obtenerCant } = useContext(CartContext)
   const cantidades = obtenerCant()
   const navigate = useNavigate()
   return (
