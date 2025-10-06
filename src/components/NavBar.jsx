@@ -23,7 +23,7 @@ function NavBar({ categories, products}) {
     e.preventDefault()
     if (busqueda.trim()) {
       navigate(`/search/${busqueda.trim()}`)
-      
+      setBusqueda("")
     }
   }
 

@@ -6,7 +6,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer"
 import CartContainer from './components/CartContainer'
 import Checkout from './components/Checkout'
 import { Toaster } from 'react-hot-toast'
-import Busqueda from './components/Busqueda'
+import Busqueda from './components/busqueda'
 import "animate.css"
 
 
