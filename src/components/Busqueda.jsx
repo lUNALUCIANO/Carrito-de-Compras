@@ -1,22 +1,5 @@
 
-import { useParams } from "react-router-dom"
-import { useEffect, useState } from "react"
-import { getItems } from "../firebase/db"
-
-function Busqueda() {
-  const { termino } = useParams()
-  const [productos, setProductos] = useState([])
-
-  useEffect(() => {
-    getItems().then(data => {
-      const filtrados = data.filter(p =>
-        p.name.toLowerCase().includes(termino.toLowerCase()) ||
-        p.category.toLowerCase().includes(termino.toLowerCase())
-      )
-      setProductos(filtrados)
-    })
-  }, [termino])
-
+function Busqueda({ productos, termino }) {
   return (
     <div className="container mt-4">
       <h2>Resultados para "{termino}"</h2>
