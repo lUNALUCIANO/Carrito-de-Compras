@@ -15,6 +15,11 @@ export const getItems = async () => {
     return items
 }
 
+export const getProducts = async () => {
+    return await getItems()
+}
+
+
 export const getCategory = async () => {
     const querySnapshot = await getDocs(collection(db, "category"))
     const category = []

@@ -1,6 +1,6 @@
 .container {
   min-height: 80vh;
-  background-color: #f8f9fa; 
+  background-color: #f8f9fa;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -8,12 +8,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .title {
   margin-bottom: 1.5rem;
-  color:#4d759a;
+  color: #4d759a;
   font-size: 1.8rem;
   font-weight: bold;
 }
@@ -24,24 +23,55 @@
   align-items: center;
   padding: 15px;
   font-size: 1rem;
+  width: 100%;
+}
 
+.itemInfo {
+  display: flex;
+  flex-direction: column;
 }
 
 .itemPrice {
   font-size: 0.9rem;
-  color: #6c757d; 
+  color: #6c757d;
+}
+
+.itemActions {
+  display: flex;
+  align-items: center;
+  gap: 50px;
 }
 
 .total {
   margin-top: 1.5rem;
-  color: #198754; 
+  color: #198754;
   font-size: 1.5rem;
   font-weight: bold;
 }
 
 .checkoutBtn {
   margin-top: 2rem;
-  width: 50%;
+  width: 30%;
   font-weight: bold;
   padding: 10px;
+}
+
+
+.deleteButton {
+  background-color: #007bff;
+  border: none;
+  display: flex;
+  justify-content: center;
+  color: white;
+  height: 35px; /* más pequeño */
+  font-size: 0.8rem; /* letra más pequeña */
+  padding:  0 18px; /* menos ancho */
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
+}
+
+.deleteButton:hover {
+  background-color: #0056b3;
+  cursor: pointer;
 }

@@ -1,34 +1,52 @@
 import { useState, useContext } from "react"
 import { Button } from "react-bootstrap"
 import { CartContext } from "../context/CartContext"
+import toast from "react-hot-toast"
 
 function Counter({ item }) {
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
     const { addToCart } = useContext(CartContext)
 
-    const handleAdd = () => setCount(count + 1)
-    const handleSub = () => setCount(count - 1)
+    const handleAdd = () => setCount(prev => prev + 1)
+    const handleSub = () => setCount(prev => (prev > 0 ? prev - 1 : 0))
 
     const handleAddToCart = () => {
-        addToCart({ ...item, count })
+        if (count > 0) {
+            addToCart({ ...item, count })
+            toast.success(`${item.name} Agregado al carrito 🛒`)
+            setCount(0)
+        } else {
+            toast.error("Tenés que Agregar al menos 1 unidad")
+        }
     }
-    return (
-        <div>
-            <p>{count}</p>
-            <Button
-                onClick={handleAdd}
-                variant="warning"
-                className="me-2"
-            >+</Button>
 
+    return (
+        <div className="d-flex align-items-center gap-2 mt-3">
             <Button
                 onClick={handleSub}
                 variant="success"
-                className="me-2"
-                disabled={count === 0}>-</Button>
-            <Button onClick={handleAddToCart}
-            >Agregar al Carrito</Button>
+                disabled={count === 0}
+            >
+                -
+            </Button>
+
+            <span className="fw-bold">{count}</span>
+
+            <Button
+                onClick={handleAdd}
+                variant="warning"
+            >
+                +
+            </Button>
+
+            <Button
+                onClick={handleAddToCart}
+                variant="primary"
+            >
+                Agregar al Carrito
+            </Button>
         </div>
-    )
+    );
 }
+
 export default Counter

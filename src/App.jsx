@@ -6,6 +6,9 @@ import ItemDetailContainer from "./components/ItemDetailContainer"
 import CartContainer from './components/CartContainer'
 import Checkout from './components/Checkout'
 import { Toaster } from 'react-hot-toast'
+import Busqueda from './components/busqueda'
+import "animate.css"
+
 
 
 function App() {
@@ -20,6 +23,7 @@ function App() {
         <Route path="/detalle/:id" element={<ItemDetailContainer/>} />
         <Route path="/cart" element={<CartContainer/>} />
         <Route path="/checkout" element={<Checkout/>} />
+        <Route path="/search/:termino" element={<Busqueda/>} />
       </Routes>
       <Toaster/>
     </BrowserRouter>

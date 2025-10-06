@@ -8,7 +8,13 @@ function CartProvider ({ children }) {
     if (cart.some( prod => prod.id === item.id)){
       return
     }
-      setCart([...cart , item])}
+      setCart([...cart , item])
+  }
+
+  const deleteItem = (id) => {
+    const updatedCart = cart.filter(item => item.id !== id)
+    setCart(updatedCart)
+  }
 
   const obtenerCant = () =>{
       const cantidades = cart.map( item => item.count)
@@ -24,8 +30,17 @@ function CartProvider ({ children }) {
 
   const clearCart = () => setCart([])
 
+  const value = {
+     addToCart ,
+      obtenerCant,
+       getTotal ,
+        cart, 
+        clearCart ,
+         deleteItem 
+  }
+
       return(
-        <CartContext.Provider value={{ addToCart , obtenerCant, getTotal , cart, clearCart  }}>
+        <CartContext.Provider value={value }>
             {children}
         </CartContext.Provider>
       )

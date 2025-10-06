@@ -8,7 +8,7 @@ import { useEffect } from 'react'
 import styles from '../styles/CartContainer.module.css'
 
 function CartContainer() {
-    const { cart, getTotal } = useContext(CartContext)
+    const { cart, getTotal, deleteItem } = useContext(CartContext)
     const total = getTotal()
     const navigate = useNavigate()
 
@@ -40,7 +40,7 @@ function CartContainer() {
         <div className={styles.container}>
             <h2 className={styles.title}>🛒 Detalle de tu Compra !!</h2>
 
-            <ListGroup className='w-50'>
+            <ListGroup className="w-50">
                 {cart.map(item => (
                     <ListGroup.Item key={item.id} className={styles.listItem}>
                         <div>
@@ -49,10 +49,20 @@ function CartContainer() {
                                 ${item.price} c/u
                             </div>
                         </div>
-                        <strong>${item.count * item.price}</strong>
+                        <div className={styles.itemActions}>
+                            <strong>${item.count * item.price}</strong>
+                            <Button
+                                className={styles.deleteButton}
+                                onClick={() => deleteItem(item.id)}
+                            >
+                                Cancelar Compra
+                            </Button>
+                        </div>
                     </ListGroup.Item>
                 ))}
             </ListGroup>
+
+
 
             <h2 className={styles.total}>💰 Total: ${total}</h2>
 

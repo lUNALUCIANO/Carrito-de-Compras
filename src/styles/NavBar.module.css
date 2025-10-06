@@ -1,0 +1,41 @@
+
+.navbarSearch {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 250px;
+}
+
+.searchInput {
+  height: 38px;
+  border-radius: 4px 0 0 4px;
+  border-right: none;
+}
+
+.searchButton {
+  height: 38px;
+  border-radius: 0 4px 4px 0;
+  border-left: none;
+}
+
+.searchDropdown {
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 100%;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  z-index: 1000;
+  max-height: 250px;
+  overflow-y: auto;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.searchDropdownItem {
+  cursor: pointer;
+}
+
+.searchDropdownItem:hover {
+  background-color: #f1f1f1;
+}
