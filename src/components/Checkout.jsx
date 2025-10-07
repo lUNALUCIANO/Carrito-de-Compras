@@ -35,10 +35,6 @@ function Checkout() {
 
     }
 
-
-
-
-
     return (
         <div className='d-flex justify-content-center mt-5'>
             <Form className='w-50' onSubmit={handleSubmit}>
@@ -53,16 +49,16 @@ function Checkout() {
                 <Form.Group className="mb-3" controlId="nombre">
                     <Form.Label>Nombre</Form.Label>
                     <Form.Control type="text" placeholder="Nombre" required name='nombre'
-                      pattern="^[a-zA-Z\s]+$"
-        title="El nombre solo puede contener letras y espacios" />
-                    
+                        pattern="^[a-zA-Z\s]+$"
+                        title="El nombre solo puede contener letras y espacios" />
+
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="telefono">
                     <Form.Label>Telefono</Form.Label>
                     <Form.Control type="text" placeholder="Telefono " required name='telefono'
-                      pattern="^[0-9]{8,15}$"
-        title="El teléfono debe contener solo números (8 a 15 dígitos)"  />
+                        pattern="^[0-9]{8,15}$"
+                        title="El teléfono debe contener solo números (8 a 15 dígitos)" />
                 </Form.Group>
 
 

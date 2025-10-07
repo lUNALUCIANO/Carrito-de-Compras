@@ -1,4 +1,5 @@
 
+
 function Busqueda({ productos, termino }) {
   return (
     <div className="container mt-4">
