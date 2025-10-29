@@ -14,9 +14,7 @@ function Item({ item }) {
                     src={item.image} className="img-fluid" />
                 <Card.Body>
                     <Card.Title>{item.name}</Card.Title >
-                    <Card.Text>
-                        {item.Description}
-                    </Card.Text>
+                  
                     <Card.Text>
                         ${item.price}
                     </Card.Text>
@@ -24,8 +22,6 @@ function Item({ item }) {
                 </Card.Body>
             </Card>
         </Col>
-
-
     )
 
 }

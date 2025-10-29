@@ -8,6 +8,8 @@ import { Toaster } from 'react-hot-toast'
 import BusquedaContainer from './components/BusquedaContainer' 
 import "animate.css"
 
+
+
 function App() {
   return (
     <BrowserRouter>

@@ -8,6 +8,7 @@ import  ButtonGroup  from 'react-bootstrap/ButtonGroup'
 
 
 
+
 function ItemDetail({ item }) {
     
     return (
@@ -20,7 +21,7 @@ function ItemDetail({ item }) {
                     <h2> {item?.name}</h2>
                     <p>Informacion del Producto: {item?.Description}</p>
                     <p>Stock Disponible: {item?.Stock} und</p>
-                    <p>${item?.price}</p>
+                    <p>Precio :$ {item?.price}</p>
                     <ButtonGroup>
                         <Counter item={item} />
                         <div className="ms-2"></div>
